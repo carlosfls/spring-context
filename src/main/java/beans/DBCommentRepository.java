@@ -1,12 +1,13 @@
 package beans;
 
-import org.springframework.stereotype.Component;
+import entity.Comment;
+import org.springframework.stereotype.Repository;
 
-@Component
+@Repository
 public class DBCommentRepository implements CommentRepository {
 
     @Override
-    public void storeComment() {
+    public void storeComment(Comment comment) {
         System.out.println("Comment stored in DB");
     }
 }

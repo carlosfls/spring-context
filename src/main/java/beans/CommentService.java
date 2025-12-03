@@ -1,5 +1,6 @@
 package beans;
 
+import entity.Comment;
 import org.springframework.stereotype.Service;
 
 //it is not a contract because it has only one way to implement the logic for the business.
@@ -14,9 +15,9 @@ public class CommentService {
         this.commentNotificationProxy = commentNotificationProxy;
     }
 
-    public void createComment(){
-        commentRepository.storeComment();
-        commentNotificationProxy.sendNotification();
+    public void createComment(Comment comment){
+        commentRepository.storeComment(comment);
+        commentNotificationProxy.sendNotification(comment);
     }
 
 }

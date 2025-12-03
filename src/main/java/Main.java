@@ -1,5 +1,6 @@
 import beans.CommentService;
 import config.ProjectConfig;
+import entity.Comment;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
@@ -11,6 +12,8 @@ public class Main {
 
         var commentService = context.getBean(CommentService.class);
 
-        commentService.createComment();
+        Comment comment = new Comment("Test comment");
+
+        commentService.createComment(comment);
     }
 }
