@@ -6,11 +6,15 @@ import org.springframework.stereotype.Service;
 @Service
 public class CommentService {
 
-    private CommentRepository commentRepository;
-    private CommentNotificationProxy commentNotificationProxy;
+    private final CommentRepository commentRepository;
+    private final CommentNotificationProxy commentNotificationProxy;
 
+    public CommentService(CommentRepository commentRepository, CommentNotificationProxy commentNotificationProxy) {
+        this.commentRepository = commentRepository;
+        this.commentNotificationProxy = commentNotificationProxy;
+    }
 
-    void createComment(){
+    public void createComment(){
         commentRepository.storeComment();
         commentNotificationProxy.sendNotification();
     }
