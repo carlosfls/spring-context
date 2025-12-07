@@ -1,9 +1,12 @@
 package config;
 
 import beans.CommentService;
+import beans.InstanceService;
+import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Scope;
 
 @ComponentScan(basePackages = "beans")
 @Configuration
@@ -23,5 +26,12 @@ public class ProjectConfig {
     @Bean
     public CommentService commentService2(){
         return new CommentService();
+    }
+
+    //Spring creates a new instance bean for each request with this scope
+    @Bean
+    @Scope(BeanDefinition.SCOPE_PROTOTYPE)
+    public InstanceService instanceService(){
+        return new InstanceService();
     }
 }
