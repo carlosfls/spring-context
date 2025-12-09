@@ -14,18 +14,18 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
     <dependencies>
-        <!--Only need this for use dependency injection and beans in spring-->
+        <!--Only need this for use dependency injection and services in spring-->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
             <version>6.2.12</version>
         </dependency>
 
-        <!--For using post-construct annotation-->
+        <!--For aspects AOP-->
         <dependency>
-            <groupId>jakarta.annotation</groupId>
-            <artifactId>jakarta.annotation-api</artifactId>
-            <version>3.0.0</version>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-aspects</artifactId>
+            <version>6.2.12</version>
         </dependency>
     </dependencies>
 
