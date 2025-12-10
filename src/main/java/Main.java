@@ -1,15 +1,11 @@
-import services.CommentService;
 import config.ProjectConfig;
 import model.Comment;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import services.CommentService;
 
 public class Main {
 
-    /**
-     * @Bean annotation is used for creating beans for adding them to the spring context
-     * @Component etc. is another way of creating beans and adding them to the context
-     */
     public static void main(String[] args) {
         //spring context
         ApplicationContext context = new AnnotationConfigApplicationContext(ProjectConfig.class);
@@ -18,6 +14,7 @@ public class Main {
 
         Comment comment = new Comment("Hello World!");
         c1.publishComment(comment);
-
+        c1.editComment(comment);
+        c1.deleteComment(comment);
     }
 }
